@@ -3,10 +3,7 @@ from flask_socketio import SocketIO, send
 from flask_cors import CORS  # Importa CORS
 
 app = Flask(__name__)
-socketio = SocketIO(app)
-
-# Abilita CORS per tutti i domini (o specifica un dominio se vuoi limitarlo)
-CORS(app, origins=["http://localhost:4200", "https://4200-andrea1932734-realtime-va47vsd5tqq.ws-eu118.gitpod.io"])
+socketio = SocketIO(app, cors_allowed_origins="*")
 
 
 @app.route('/')

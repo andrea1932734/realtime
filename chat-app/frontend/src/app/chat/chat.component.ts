@@ -13,7 +13,7 @@ export class ChatComponent implements OnInit {
 
   ngOnInit() {
     // Connessione al server Flask con Socket.IO
-    this.socket = io('http://localhost:5000');  // Modifica l'URL se necessario
+    this.socket = io('https://5000-andrea1932734-realtime-yzlu2wvctoc.ws-eu118.gitpod.io');  // Modifica l'URL se necessario
 
     // Ascolta i messaggi ricevuti
     this.socket.on('message', (msg: string) => {
@@ -21,7 +21,8 @@ export class ChatComponent implements OnInit {
     });
   }
 
-  sendMessage() {
+  sendMessage(message : HTMLInputElement) {
+    this.message = message.value;
     if (this.message.trim()) {
       // Invia il messaggio al server Flask
       this.socket.emit('message', this.message);

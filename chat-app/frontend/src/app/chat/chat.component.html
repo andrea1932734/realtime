@@ -2,7 +2,7 @@
     <div class="messages">
       <div *ngFor="let msg of messages">{{ msg }}</div>
     </div>
-    <input [(ngModel)]="message" placeholder="Scrivi un messaggio..." />
-    <button (click)="sendMessage()">Invia</button>
+    <input placeholder="Scrivi un messaggio..." #message />
+    <button (click)="sendMessage(message)"> Invia</button>
   </div>
   
